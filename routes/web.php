@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ProductGalleryController as AdminProductGalleryController;
+use App\Http\Controllers\Admin\TransactionController as AdminTransactionController;
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -61,13 +62,15 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::prefix('admin')
-->middleware(['auth', 'admin'])
+// method middleware, berbentuk array yg isinya adalah auth dan nama alias dari middleware nya yg didapt dari file app.php
+->middleware(['auth', 'isAdmin'])
 ->group(function(){
     Route::get('/', [AdminDashboardController::class, 'index'])->name('admin-dashboard');
     Route::resource('category', AdminCategoryController::class);
     Route::resource('user', AdminUserController::class);
     Route::resource('product', AdminProductController::class);
     Route::resource('product-gallery', AdminProductGalleryController::class);
+    Route::resource('transaction', AdminTransactionController::class);
 });
 // Route::get('/admin', [AdminController::class, 'index'])->name('admin-dashboard');
 Auth::routes();

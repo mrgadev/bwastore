@@ -30,7 +30,7 @@
               <a href="{{route('category.index')}}" class="list-group-item list-group-item-action {{(request()->is('admin/category*')) ? 'active' : ''}}">Category</a>
               <a href="{{route('product.index')}}" class="list-group-item list-group-item-action {{(request()->is('admin/product*')) ? 'active' : ''}}">Products</a>
               <a href="{{route('product-gallery.index')}}" class="list-group-item list-group-item-action {{(request()->is('admin/product-gallery*')) ? 'active' : ''}}">Product Galleries</a>
-              <a href="{{route('dashboard-transactions')}}" class="list-group-item list-group-item-action ">Transactions</a>
+              <a href="{{route('transaction.index')}}" class="list-group-item list-group-item-action ">Transactions</a>
               <a href="{{route('user.index')}}" class="list-group-item list-group-item-action {{(request()->is('admin/user*')) ? 'active' : ''}}">Users</a>
               {{-- <a href="{{route('dashboard-settings-store')}}" class="list-group-item list-group-item-action ">Store Settings</a>
               <a href="{{route('dashboard-settings-account')}}" class="list-group-item list-group-item-action ">My Account</a> --}}
